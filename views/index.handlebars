@@ -1,0 +1,32 @@
+<img src="/assets/img/burger.png" width="200px" id="burger-img">
+<h1>Eat-Da-Burger!</h1>
+
+<h2>These burgers are not yet devoured</h2>
+<ul>
+  {{#each burgers}}
+    {{#unless dataValues.devoured}}
+      {{> burgers/undevoured-block devoured=true}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>These burgers have been devoured</h2>
+<ul>
+  {{#each burgers}}
+    {{#if dataValues.devoured}}
+      {{> burgers/devoured-block}}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <input type="text" id="new-burger" name="name">
+  </div>
+
+  <button type="submit" id="submit-button">Submit</button>
+
+  <p>Enter a burger you want to name, and then click Submit</p>
+</form>
